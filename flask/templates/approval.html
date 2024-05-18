@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approval</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main>
+        <header>
+            <h4>Approval</h4>
+        </header>
+        {% if column_name == 'expdate' %}
+            <form action="{{ url_for('expdate') }}" method="post">
+        {% elif column_name == 'expzalo' %}
+            <form action="{{ url_for('expzalo') }}" method="post">
+    
+        {% elif column_name == 'expfacebook' %}
+            <form action="{{ url_for('expfacebook') }}" method="post">
+        {% elif column_name == 'exptiktok' %}
+            <form action="{{ url_for('exptiktok') }}" method="post">
+        {% elif column_name == 'exptelegram' %}
+            <form action="{{ url_for('exptelegram') }}" method="post">
+        {% endif %}
+        
+
+            <div class="msg">{{ msg }}</div>
+            <div class="form_wrapper">
+                <input id="username" name="username" type="text" required>
+                <label for="username">Username</label>
+                <i class="material-icons">person</i>
+            </div> 
+
+            {% if column_name == 'expdate' %}
+            <div class="form_wrapper">
+                <input id="expdate" name="expdate" type="text" required>
+                <label for="expdate">expdate</label>
+                <i class="material-icons">popper</i>
+            </div>
+            {% elif column_name == 'expzalo' %}
+            <div class="form_wrapper">
+                <input id="expzalo" name="expzalo" type="text" required>
+                <label for="expzalo">Expzalo</label>
+                <i class="material-icons">popper</i>
+            </div>
+            {% elif column_name == 'expfacebook' %}
+            <div class="form_wrapper">
+                <input id="expfacebook" name="expfacebook" type="text" required>
+                <label for="expfacebook">Expfacebook</label>
+                <i class="material-icons">popper</i>
+            </div>
+            {% elif column_name == 'exptiktok' %}
+            <div class="form_wrapper">
+                <input id="exptiktok" name="exptiktok" type="text" required>
+                <label for="exptiktok">Exptiktok</label>
+                <i class="material-icons">popper</i>
+            </div>
+            {% elif column_name == 'exptelegram' %}
+            <div class="form_wrapper">
+                <input id="exptelegram" name="exptelegram" type="text" required>
+                <label for="exptelegram">Exptelegram</label>
+                <i class="material-icons">popper</i>
+            </div>
+            {% endif %}
+
+            
+            <button type="submit">Approval</button>
+
+            <div class="new_account">
+                Don't have an account? <a href="{{ url_for('register') }}">Sign Up here</a>
+                <br>
+                <a href="/expdate" class="btn-primary" style="margin-bottom: 10px;">Expdate</a>
+                <br>
+                <a href="/expzalo" class="btn-primary" style="margin-bottom: 10px;">Expzalo</a>
+                <br>
+                <a href="/expfacebook" class="button" style="margin-bottom: 10px;">Expfacebook</a>
+                <br>
+                <a href='/exptiktok' class="button" style="margin-bottom: 10px;">Exptiktok</a>
+                <br>
+                <a href="/exptelegram" class="button" style="margin-bottom: 10px;">Exptelegram</a>
+                <br>
+                <a href="/country" class="button" style="margin-bottom: 10px;">Country</a>
+                <br>
+                <a href="/delete_account" class="button" style="margin-bottom: 10px;">Delete account</a>
+                <br>
+                <a href="/money" class="button" style="margin-bottom: 10px;">Money</a>
+                <br>
+                <a href="/logout2" class="button" style="margin-bottom: 10px;">Logout</a>
+            </div>
+        </form>
+    </main>
+</body>
+</html>
